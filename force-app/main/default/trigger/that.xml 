@@ -1,0 +1,24 @@
+
+<Trigger>
+  <Name>AccountHistoryTrigger</Name>
+  <Description>Trigger to fetch transaction history or activity log for a specific user</Description>
+  <InputParameters>
+    <Parameter>
+      <Name>accountNumber</Name>
+      <Type>string</Type>
+      <Description>The account number for which the transaction history is to be fetched</Description>
+    </Parameter>
+  </InputParameters>
+  <OutputParameters>
+    <Parameter>
+      <Name>transactionHistory</Name>
+      <Type>list</Type>
+      <Description>A list of dictionaries representing the transaction history</Description>
+    </Parameter>
+    <Parameter>
+      <Name>notFound</Name>
+      <Type>boolean</Type>
+      <Description>Indicates whether the account number was not found</Description>
+    </Parameter>
+  </OutputParameters>
+</Trigger>

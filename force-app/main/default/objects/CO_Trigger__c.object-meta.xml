@@ -1,0 +1,53 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>AccountHistory__c</name>
+    <fields>
+        <fullName>AccountNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Number</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TransactionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Transaction Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <nameField>
+        <displayFormat>Account Number {0000}</displayFormat>
+        <label>Account History Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+        <unique>false</unique>
+    </nameField>
+    <pluralLabel>Account Histories</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
