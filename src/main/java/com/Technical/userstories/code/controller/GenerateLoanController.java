@@ -19,9 +19,12 @@ public class GenerateLoanController {
                                     @RequestParam String applicationForm,
                                     @RequestParam String loanOffer,
                                     @RequestParam String acceptedLoanOffer,
-                                    @RequestParam String approvedLoanAmount) {
+                                    @RequestParam String approvedLoanAmount,
+                                    @RequestParam String customerAccountNumber,
+                                    @RequestParam String bankIFSCCode) {
         return generateLoanService.generateLoan(customerId,
-                applicationForm, loanOffer, acceptedLoanOffer, approvedLoanAmount);
+                applicationForm, loanOffer, acceptedLoanOffer, approvedLoanAmount,
+                customerAccountNumber, bankIFSCCode);
     }
 
     @GetMapping("/customer-id/{customerId}")
@@ -49,4 +52,13 @@ public class GenerateLoanController {
         return generateLoanService.getLoanByApprovedLoanAmount(approvedLoanAmount);
     }
 
+    @GetMapping("/customer-account-number/{customerAccountNumber}")
+    public Optional<GenerateLoan> getLoanByCustomerAccountNumber(@PathVariable String customerAccountNumber) {
+        return generateLoanService.getLoanByCustomerAccountNumber(customerAccountNumber);
+    }
+
+    @GetMapping("/bank-ifsc-code/{bankIFSCCode}")
+    public Optional<GenerateLoan> getLoanByBankIFSCCode(@PathVariable String bankIFSCCode) {
+        return generateLoanService.getLoanByBankIFSCCode(bankIFSCCode);
+    }
 }
