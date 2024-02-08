@@ -1,0 +1,47 @@
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <status>Active</status>
+    <packageVersions></packageVersions>
+    <sharingModel>ReadWrite</sharingModel>
+    <isTest>false</isTest>
+    <runAsUser>Standard</runAsUser>
+    <webLinks></webLinks>
+    <testMethods></testMethods>
+    <fullName>CarMortgageLoanApplication</fullName>
+    <description>Apex class for handling car mortgage loan applications through multiple channels</description>
+    <type>Class</type>
+    <content>public class CarMortgageLoanApplication {
+        // Variables to store customer information
+        String firstName;
+        String lastName;
+        String identificationDocument;
+        Decimal proofOfIncome;
+        String creditHistory;
+        String employmentDetails;
+        
+        // Method to submit the loan application electronically
+        public void submitApplicationOnline() {
+            // Implementation logic here
+        }
+        
+        // Method to submit the loan application in-person at a branch
+        public void submitApplicationInPerson() {
+            // Implementation logic here
+        }
+        
+        // Method to submit the loan application via mobile app
+        public void submitApplicationMobile() {
+            // Implementation logic here
+        }
+        
+        // Method to send confirmation message or email to the customer
+        public void sendConfirmation() {
+            // Implementation logic here
+        }
+        
+        // Method to process the loan application
+        public void processApplication() {
+            // Implementation logic here
+        }
+    }</content>
+</ApexClass>
