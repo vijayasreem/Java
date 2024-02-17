@@ -17,13 +17,18 @@ public class MortgageLoanController {
     // API to receive and store car mortgage loan application data from customers.
     @PostMapping
     public ResponseEntity<MortgageLoan> saveMortgageLoanData(@RequestBody MortgageLoan mortgageLoan) {
-        boolean isValidData = mortgageLoanService.validateMortgageLoanData(mortgageLoan);
-        if(isValidData) {
-            MortgageLoan savedMortgageLoan = mortgageLoanService.saveMortgageLoanData(mortgageLoan);
-            mortgageLoanService.sendConfirmationMessage(savedMortgageLoan);
-            return new ResponseEntity<>(savedMortgageLoan, HttpStatus.CREATED);
+        try {
+            boolean isValidData = mortgageLoanService.validateMortgageLoanData(mortgageLoan);
+            if (isValidData) {
+                MortgageLoan savedMortgageLoan = mortgageLoanService.saveMortgageLoanData(mortgageLoan);
+                mortgageLoanService.sendConfirmationMessage(savedMortgageLoan);
+                return new ResponseEntity<>(savedMortgageLoan, HttpStatus.CREATED);
+            } else {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     // API to retrieve the car mortgage loan application data from the database.
@@ -32,8 +37,8 @@ public class MortgageLoanController {
         MortgageLoan mortgageLoan = mortgageLoanService.getMortgageLoanData(id);
         if (mortgageLoan != null) {
             return new ResponseEntity<>(mortgageLoan, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
 }
