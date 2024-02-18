@@ -16,13 +16,14 @@ public class GenerateLoanController {
 
     @PostMapping
     public GenerateLoan generateLoan(@RequestParam String customerId,
+                                    @RequestParam String customerName,
                                     @RequestParam String applicationForm,
                                     @RequestParam String loanOffer,
                                     @RequestParam String acceptedLoanOffer,
                                     @RequestParam String approvedLoanAmount,
                                     @RequestParam String customerAccountNumber,
                                     @RequestParam String bankIFSCCode) {
-        return generateLoanService.generateLoan(customerId,
+        return generateLoanService.generateLoan(customerId, customerName,
                 applicationForm, loanOffer, acceptedLoanOffer, approvedLoanAmount,
                 customerAccountNumber, bankIFSCCode);
     }
