@@ -13,13 +13,16 @@ public class GenerateLoanService {
     @Autowired
     GenerateLoanRepository generateLoanRepository;
 
-    public GenerateLoan generateLoan(String customerId, String applicationForm, String loanOffer, String acceptedLoanOffer, String approvedLoanAmount){
+    public GenerateLoan generateLoan(String customerId, String customerName, String applicationForm, String loanOffer, String acceptedLoanOffer, String approvedLoanAmount, String customerAccountNumber, String bankIFSCCode){
         GenerateLoan generateLoan = new GenerateLoan();
         generateLoan.setCustomerId(customerId);
+        generateLoan.setCustomerName(customerName);
         generateLoan.setApplicationForm(applicationForm);
         generateLoan.setLoanOffer(loanOffer);
         generateLoan.setAcceptedLoanOffer(acceptedLoanOffer);
         generateLoan.setApprovedLoanAmount(approvedLoanAmount);
+        generateLoan.setCustomerAccountNumber(customerAccountNumber);
+        generateLoan.setBankIFSCCode(bankIFSCCode);
         return generateLoanRepository.save(generateLoan);
     }
 
